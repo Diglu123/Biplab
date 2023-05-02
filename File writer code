@@ -1,0 +1,24 @@
+import org.apache.jmeter.samplers.SampleResult;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.io.FileWriter;
+import java.io.IOException;
+
+// Get the response data from the sample result
+String responseData = prev.getResponseDataAsString();
+
+FileWriter writer = new FileWriter("/home/apmosys/Documents/AsitC_Metha/write.txt",true);
+
+// Extract a value from the response data using a regular expression
+String pattern = "\"ClientCode\":\"(.+?)\"";
+
+Pattern regex = Pattern.compile(pattern);
+Matcher matcher = regex.matcher(responseData);
+if (matcher.find()) {
+    String value = matcher.group(1);
+    // Store the value in a JMeter variable
+    vars.put("myVariable", value);
+    writer.write(value + "\n");
+    log.info(value);
+}
+writer.close();
