@@ -1,0 +1,14 @@
+//import java.io.*;
+
+// Create a FileWriter object to write to a file
+FileWriter writer = new FileWriter("/home/apmosys/Documents/AsitC_Metha/write.txt",true);
+
+log.info("${VIEWSTATEGENERATOR1_g1}");
+
+// Write a string to the file
+writer.write("${VIEWSTATEGENERATOR1_g1}"+"\n");
+
+
+
+// Close the writer to save changes
+writer.close();
