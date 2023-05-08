@@ -1,0 +1,21 @@
+import java.io.*;
+import org.apache.jmeter.services.FileServer; 
+//import java.io.FileWriter;
+//import java.io.PrintWriter;
+//import java.util.Arrays;
+//import java.io.Writer;
+
+String msg="${success_g1}";
+File file = new File("/home/apmosys/Documents/AsitC_Metha/write.txt");
+FileWriter fstream = new FileWriter(file, true);
+// true, will append the file if already exist
+
+BufferedWriter out = new BufferedWriter(fstream);
+
+out.write(msg+"\n");
+//out.write(userID+","+entityID+","+msg+"\n");
+log.info(msg+"\n");
+//out.write("Save your data which you want to save");
+
+out.close();
+fstream.close();
